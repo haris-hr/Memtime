@@ -6,7 +6,6 @@ import Icon from './components/Icon.vue';
 import { A11Y_LABELS } from './config/ui-strings';
 
 const route = useRoute();
-
 const currentRouteName = computed(() => route.name);
 </script>
 
@@ -29,10 +28,6 @@ const currentRouteName = computed(() => route.name);
           <RouterLink to="/time-entries" class="nav-link" :class="{ active: currentRouteName === 'time-entries' }">
             <Icon name="clock" />
             <span>Time Entries</span>
-          </RouterLink>
-          <RouterLink v-if="!['time-entries', 'time-entry-new', 'time-entry-edit'].includes(currentRouteName as string)" to="/time-entry/new" class="nav-link nav-link-cta">
-            <Icon name="clockPlus" />
-            <span>New Entry</span>
           </RouterLink>
         </nav>
       </div>
@@ -141,19 +136,6 @@ const currentRouteName = computed(() => route.name);
 
 .nav-link svg {
   flex-shrink: 0;
-}
-
-.nav-link-cta {
-  background: linear-gradient(135deg, var(--accent-color) 0%, var(--accent-hover) 100%);
-  color: white !important;
-  box-shadow: 0 2px 8px var(--accent-shadow);
-}
-
-.nav-link-cta:hover {
-  background: linear-gradient(135deg, var(--accent-hover) 0%, var(--accent-dark) 100%);
-  color: white !important;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px var(--accent-shadow-lg);
 }
 
 .main {

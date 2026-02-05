@@ -4,7 +4,7 @@ import type { Client } from '../types';
 import { getClients } from '../api/services';
 import { usePagination } from '../composables/usePagination';
 import { ERROR_MESSAGES } from '../config/error-messages';
-import { PAGE_TITLES, LOADING_TEXT, EMPTY_STATES, A11Y_LABELS } from '../config/ui-strings';
+import { PAGE_TITLES, LOADING_TEXT, EMPTY_STATES, A11Y_LABELS, BUTTON_LABELS } from '../config/ui-strings';
 import ClientNode from '../components/tree/ClientNode.vue';
 import LoadingSpinner from '../components/LoadingSpinner.vue';
 import ErrorMessage from '../components/ErrorMessage.vue';
@@ -32,15 +32,21 @@ onMounted(() => {
 <template>
   <div class="hierarchy-view">
     <div class="page-header">
-      <div class="page-header-icon">
-        <Icon name="home" :size="28" />
+      <div class="page-header-left">
+        <div class="page-header-icon">
+          <Icon name="home" :size="28" />
+        </div>
+        <div>
+          <h2>{{ PAGE_TITLES.hierarchy }}</h2>
+          <p class="page-description">
+            {{ PAGE_TITLES.hierarchyDescription }}
+          </p>
+        </div>
       </div>
-      <div>
-        <h2>{{ PAGE_TITLES.hierarchy }}</h2>
-        <p class="page-description">
-          {{ PAGE_TITLES.hierarchyDescription }}
-        </p>
-      </div>
+      <router-link to="/time-entry/new" class="btn btn-primary">
+        <Icon name="clockPlus" />
+        {{ BUTTON_LABELS.newEntry }}
+      </router-link>
     </div>
     
     <div v-if="isLoading" class="loading-state">
@@ -84,6 +90,17 @@ onMounted(() => {
 .hierarchy-view {
   max-width: 800px;
   margin: 0 auto;
+}
+
+/* Override: page-header needs space-between for the action button */
+.hierarchy-view .page-header {
+  justify-content: space-between;
+}
+
+.page-header-left {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
 }
 
 /* View-specific styles only */
