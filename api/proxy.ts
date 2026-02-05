@@ -74,7 +74,20 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     // Handle empty responses (e.g., 204 No Content from DELETE)
     const text = await response.text();
-    const data = text ? JSON.parse(text) : {};
+    
+    // Try to parse as JSON, fall back to returning the raw error
+    let data = {};
+    if (text) {
+      try {
+        data = JSON.parse(text);
+      } catch {
+        // Response isn't JSON - could be an error page or plain text
+        console.error('Non-JSON response:', text.substring(0, 200));
+        return res.status(response.status).json({ 
+          error: response.ok ? 'Unexpected response format' : (text.substring(0, 100) || 'Server error')
+        });
+      }
+    }
     
     // Forward the status code and response
     return res.status(response.status).json(data);
