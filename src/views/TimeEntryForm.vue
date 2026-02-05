@@ -213,6 +213,15 @@ watch(
   () => {
     if (isEditMode.value) {
       loadEntry();
+    } else {
+      // Check for taskId query param (from clicking a task in Overview)
+      const queryTaskId = route.query.taskId;
+      if (queryTaskId) {
+        const parsed = parseInt(String(queryTaskId), 10);
+        if (Number.isInteger(parsed) && parsed > 0) {
+          taskId.value = parsed;
+        }
+      }
     }
   },
   { immediate: true }

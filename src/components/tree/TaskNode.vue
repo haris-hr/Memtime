@@ -1,16 +1,30 @@
 <script setup lang="ts">
+import { useRouter } from 'vue-router';
 import type { Task } from '../../types';
 import Icon from '../Icon.vue';
 import StatusBadge from '../StatusBadge.vue';
 import { A11Y_LABELS } from '../../config/ui-strings';
 
-defineProps<{
+const props = defineProps<{
   task: Task;
 }>();
+
+const router = useRouter();
+
+function logTime() {
+  router.push(`/time-entry/new?taskId=${props.task.id}`);
+}
 </script>
 
 <template>
-  <div class="task-node" role="listitem" :aria-label="A11Y_LABELS.taskItem(task.name, task.id, task.status)">
+  <div 
+    class="task-node" 
+    role="button"
+    tabindex="0"
+    :aria-label="`${A11Y_LABELS.taskItem(task.name, task.id, task.status)}. Click to log time.`"
+    @click="logTime"
+    @keydown.enter="logTime"
+  >
     <div class="task-content">
       <div class="node-icon node-icon-sm node-icon-task">
         <Icon name="checkSquare" :size="14" />
@@ -45,8 +59,15 @@ defineProps<{
 }
 
 .task-node:hover {
-  border-color: var(--border-hover);
-  background: var(--bg-hover);
+  border-color: var(--accent-color);
+  background: var(--accent-bg);
+  cursor: pointer;
+}
+
+.task-node:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px var(--accent-ring);
 }
 
 .task-content {

@@ -75,6 +75,7 @@ api/
 ## Future Improvements
 
 **UX Enhancements**
+- Time log dashboard — View time entries grouped by task or by day, with totals and summaries
 - Task picker modal — Browse hierarchy and select tasks with search instead of typing IDs manually
 - Time entries search — Add datepicker and filters to search entries by date range
 - Hierarchy overview search — Add search bar to Overview to quickly find clients, projects, or tasks
