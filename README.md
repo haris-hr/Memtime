@@ -65,6 +65,7 @@ api/
 
 - **Rate limiting** — API allows 15 req/min. The app uses lazy loading to stay under limits.
 - **Pagination** — Fetches `pageSize + 1` to detect if there's a next page (API doesn't return total count).
+- **Known API issue** — Deleting the last time entry causes a 500 error from the upstream API when fetching the empty list. This is probably a backend bug.
 
 ## Security
 
