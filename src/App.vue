@@ -30,7 +30,7 @@ const currentRouteName = computed(() => route.name);
             <Icon name="clock" />
             <span>Time Entries</span>
           </RouterLink>
-          <RouterLink v-if="currentRouteName !== 'time-entries'" to="/time-entry/new" class="nav-link nav-link-cta">
+          <RouterLink v-if="!['time-entries', 'time-entry-new', 'time-entry-edit'].includes(currentRouteName as string)" to="/time-entry/new" class="nav-link nav-link-cta">
             <Icon name="clockPlus" />
             <span>New Entry</span>
           </RouterLink>
