@@ -61,6 +61,7 @@ export const BUTTON_LABELS = {
   next: 'Next',
   backToHome: 'Back to Home',
   backToTimeEntries: 'Back to Time Entries',
+  backToOverview: 'Back to Overview',
 } as const;
 
 // Error component text

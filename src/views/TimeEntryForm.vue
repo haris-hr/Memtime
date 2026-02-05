@@ -192,7 +192,12 @@ async function handleSubmit() {
 
 
 function goBack() {
-  router.push('/time-entries');
+  // If came from Overview (has taskId query), go back there; otherwise go to Time Entries
+  if (route.query.taskId) {
+    router.push('/');
+  } else {
+    router.push('/time-entries');
+  }
 }
 
 // Calculate duration preview
@@ -233,7 +238,7 @@ watch(
     <div class="page-header">
       <button class="back-btn" @click="goBack">
         <Icon name="arrowLeft" :size="20" />
-        {{ BUTTON_LABELS.backToTimeEntries }}
+        {{ route.query.taskId ? BUTTON_LABELS.backToOverview : BUTTON_LABELS.backToTimeEntries }}
       </button>
       <div class="page-header-content">
         <div class="page-header-icon">
