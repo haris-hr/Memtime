@@ -84,7 +84,7 @@ api/
 - Task picker modal — Browse hierarchy and select tasks with search instead of typing IDs manually
 - Time entries search — Add datepicker and filters to search entries by date range
 - Hierarchy overview search — Add search bar to Overview to quickly find clients, projects, or tasks
-- Dark mode — Theme toggle using existing CSS variables
+- Dark mode — Theme toggle
 - Optimistic updates — Update UI immediately while waiting for API
 
 **Performance**
