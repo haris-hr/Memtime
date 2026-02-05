@@ -91,6 +91,7 @@ export const A11Y_LABELS = {
   clientsList: 'Clients',
   timeEntriesList: 'Time entries list',
   timeRange: 'Time range',
+  dismiss: 'Dismiss',
   expandClient: (name: string, status: string, expanded: boolean) => 
     `${name}, ${status}. Click to ${expanded ? 'collapse' : 'expand'}`,
   expandProject: (name: string, status: string, expanded: boolean) => 

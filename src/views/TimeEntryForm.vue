@@ -12,6 +12,7 @@ import LoadingSpinner from '../components/LoadingSpinner.vue';
 import ErrorMessage from '../components/ErrorMessage.vue';
 import Icon from '../components/Icon.vue';
 import ConfirmModal from '../components/ConfirmModal.vue';
+import Toast from '../components/Toast.vue';
 
 const route = useRoute();
 const router = useRouter();
@@ -397,6 +398,13 @@ watch(
       @confirm="handleDelete"
       @cancel="closeDeleteConfirm"
     />
+    
+    <!-- Delete Error Toast -->
+    <Toast 
+      :message="deleteError ?? ''" 
+      variant="error" 
+      @dismiss="clearDeleteError" 
+    />
   </div>
 </template>
 
@@ -576,4 +584,5 @@ watch(
 .fade-leave-to {
   opacity: 0;
 }
+
 </style>
