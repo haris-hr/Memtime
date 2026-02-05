@@ -35,6 +35,7 @@ When deploying to Vercel, set these in your dashboard:
 - **Hierarchy View** — Browse clients → projects → tasks in an expandable tree
 - **Time Entries** — List, create, edit, and delete time entries
 - **Form Validation** — Duration preview, error handling, double-submit prevention
+- **Fully Responsive** — Mobile-first design that works seamlessly on all screen sizes
 
 ## Project Structure
 

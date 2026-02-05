@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed, onMounted } from 'vue';
+import { ref, computed, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import type { TimeEntryPayload } from '../types';
 import { getTimeEntry, createTimeEntry, updateTimeEntry } from '../api/services';
@@ -62,9 +62,11 @@ const successMessage = ref<string | null>(null);
 const {
   showModal: showDeleteConfirm,
   isDeleting,
+  error: deleteError,
   confirmDeleteById,
   cancelDelete: closeDeleteConfirm,
   handleDelete,
+  clearError: clearDeleteError,
 } = useDeleteTimeEntry(async () => {
   await router.push('/time-entries');
 });
@@ -204,11 +206,16 @@ const durationPreview = computed(() => {
   return formatDuration(startDate.value, endDate.value);
 });
 
-onMounted(() => {
-  if (isEditMode.value) {
-    loadEntry();
-  }
-});
+// Watch for route param changes - handles both initial mount and navigation between entries
+watch(
+  () => route.params.id,
+  () => {
+    if (isEditMode.value) {
+      loadEntry();
+    }
+  },
+  { immediate: true }
+);
 </script>
 
 <template>
