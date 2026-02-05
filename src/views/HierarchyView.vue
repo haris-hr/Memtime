@@ -103,6 +103,18 @@ onMounted(() => {
   gap: 1rem;
 }
 
+@media (max-width: 768px) {
+  .hierarchy-view .page-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hierarchy-view .page-header .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
 /* View-specific styles only */
 .clients-list {
   display: flex;
