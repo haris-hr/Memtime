@@ -68,7 +68,7 @@ api/
 
 **Known API Issues**
 - Deleting the last time entry causes a 500 error when fetching the empty list
-- Creating a time entry with an invalid task ID returns 404, but updating allows any task ID without validation
+- Creating a time entry with an invalid task ID returns 404, but updating allows any task ID without validation (we could make Task ID read-only on the frontend, but users may want to reassign time to a different task)
 
 ## Security
 
