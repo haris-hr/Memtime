@@ -85,7 +85,6 @@ api/
 - Time entries search — Add datepicker and filters to search entries by date range
 - Hierarchy overview search — Add search bar to Overview to quickly find clients, projects, or tasks
 - Dark mode — Theme toggle
-- Optimistic updates — Update UI immediately while waiting for API
 
 **Performance**
 - API response caching — Use `@tanstack/vue-query` or in-memory cache for hierarchy data
