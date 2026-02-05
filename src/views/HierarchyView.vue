@@ -83,6 +83,7 @@ onMounted(() => {
 <style scoped>
 .hierarchy-view {
   max-width: 800px;
+  margin: 0 auto;
 }
 
 /* View-specific styles only */
