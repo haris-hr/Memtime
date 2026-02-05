@@ -80,11 +80,6 @@ const {
   border-color: var(--border-hover);
 }
 
-.client-node.expanded {
-  border-color: var(--accent-color);
-  box-shadow: 0 0 0 3px var(--accent-ring);
-}
-
 .client-header {
   display: flex;
   align-items: center;
