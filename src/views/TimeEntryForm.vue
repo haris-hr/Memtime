@@ -420,6 +420,7 @@ watch(
 <style scoped>
 .time-entry-form-view {
   max-width: 640px;
+  margin: 0 auto;
 }
 
 .back-btn {

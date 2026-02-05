@@ -187,6 +187,7 @@ onMounted(() => {
 <style scoped>
 .time-entries-view {
   max-width: 1000px;
+  margin: 0 auto;
 }
 
 /* Override: page-header needs space-between for the action button */
