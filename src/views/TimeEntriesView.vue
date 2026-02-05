@@ -100,7 +100,6 @@ onMounted(() => {
         <table class="table" role="grid" :aria-label="A11Y_LABELS.timeEntriesList">
           <thead>
             <tr>
-              <th scope="col">{{ TABLE_HEADERS.id }}</th>
               <th scope="col">{{ TABLE_HEADERS.task }}</th>
               <th scope="col">{{ TABLE_HEADERS.comment }}</th>
               <th scope="col">{{ TABLE_HEADERS.time }}</th>
@@ -120,9 +119,6 @@ onMounted(() => {
               role="row"
               :aria-label="A11Y_LABELS.timeEntryRow(entry.id, entry.taskId, entry.comment)"
             >
-              <td class="id-cell">
-                <span class="id-badge">#{{ entry.id }}</span>
-              </td>
               <td class="task-cell">
                 <span class="task-badge">
                   <span class="task-label">Task</span>
@@ -216,20 +212,6 @@ onMounted(() => {
 
 .entry-row {
   transition: background var(--transition-fast);
-}
-
-.id-cell {
-  width: 80px;
-}
-
-.id-badge {
-  display: inline-block;
-  padding: 0.25rem 0.5rem;
-  background: var(--bg-hover);
-  border-radius: var(--radius-sm);
-  font-family: monospace;
-  font-size: 0.8125rem;
-  color: var(--text-secondary);
 }
 
 .task-cell {
