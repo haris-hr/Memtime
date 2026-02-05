@@ -72,7 +72,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       });
     }
 
-    const data = await response.json();
+    // Handle empty responses (e.g., 204 No Content from DELETE)
+    const text = await response.text();
+    const data = text ? JSON.parse(text) : {};
     
     // Forward the status code and response
     return res.status(response.status).json(data);
