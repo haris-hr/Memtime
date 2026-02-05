@@ -65,12 +65,21 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         : {}),
     });
 
+    // Handle rate limiting with a friendly message
+    if (response.status === 429) {
+      return res.status(429).json({ 
+        error: 'Too many requests. Please wait a moment and try again.' 
+      });
+    }
+
     const data = await response.json();
     
     // Forward the status code and response
     return res.status(response.status).json(data);
   } catch (error) {
     console.error('Proxy error:', error);
-    return res.status(502).json({ error: 'Failed to reach upstream API' });
+    return res.status(502).json({ 
+      error: 'Unable to connect to the server. Please try again.' 
+    });
   }
 }

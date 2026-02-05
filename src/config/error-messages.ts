@@ -35,6 +35,7 @@ export const STATUS_ERROR_MAP: Record<number, string> = {
   404: ERROR_MESSAGES.notFound,
   429: ERROR_MESSAGES.rateLimited,
   500: ERROR_MESSAGES.serverError,
+  502: ERROR_MESSAGES.networkError,
 };
 
 /**
