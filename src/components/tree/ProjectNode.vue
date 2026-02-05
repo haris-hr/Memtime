@@ -92,10 +92,6 @@ const {
   border-color: var(--border-hover);
 }
 
-.project-node.expanded {
-  border-color: var(--accent-color);
-}
-
 .project-header {
   display: flex;
   align-items: center;
