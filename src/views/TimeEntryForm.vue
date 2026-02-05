@@ -512,6 +512,7 @@ watch(
 .field-hint {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 0.375rem;
   color: var(--text-muted);
   font-size: 0.8125rem;
@@ -520,6 +521,18 @@ watch(
 
 .field-hint svg {
   flex-shrink: 0;
+}
+
+@media (max-width: 400px) {
+  .field-hint {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+  
+  .field-hint svg {
+    display: none;
+  }
 }
 
 .hint-link {
